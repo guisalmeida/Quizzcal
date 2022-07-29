@@ -1,0 +1,95 @@
+@import 'reset.scss';
+
+:root {
+  font-family: Karla, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  color: #293264;
+  background: #F5F7FB;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  
+  &::before {
+    width: 148px;
+    height: 118px;
+    content: "";
+    background-image: url("../images/blob-blue.png");
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  
+  &::after {
+    width: 158px;
+    height: 141px;
+    content: "";
+    background-image: url("../images/blob-yellow.png");
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .button {
+    color: #F5F7FB;
+    background: #4D5B9E;
+    border-radius: 15px;
+    font-weight: 400;
+    font-size: 1em;
+    width: 200px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    margin-top: 30px;
+
+    &:hover {
+      background: #414c84;
+    }
+  }
+}
+  
+.question-content {
+  width: 50%;
+}
+
+.results {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 30px;
+
+    .button {
+      margin-top: 0;
+    }
+
+    p {
+      font-weight: 700;
+    }
+}
+
+.start {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
