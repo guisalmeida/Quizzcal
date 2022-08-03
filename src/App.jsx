@@ -7,7 +7,11 @@ function App() {
   const [check, setCheck] = useState(false)
   let result = 0
 
+  // https://beta.reactjs.org/learn/synchronizing-with-effects#fetching-data
+  let ignore = false;
+
   function getQuestions() {
+    console.log("fetchhhhhh");
     fetch("https://opentdb.com/api.php?amount=5&category=21&type=multiple")
       .then(res => res.json())
       .then(data => setQuestions(() => {
@@ -32,14 +36,23 @@ function App() {
     )
   }
 
-  function startQuiz() {
+  function startQuiz() {    
+    if (ignore) {
+      return
+    }
     setCheck(false)
     setStart(true)
     setQuestions([])
     getQuestions()
   }
 
-  useEffect(() => startQuiz(), [])
+  useEffect(() => {
+    startQuiz()
+
+    return () => {
+      ignore = true;
+    };
+  }, [])
 
   return (
     <div className="App">
